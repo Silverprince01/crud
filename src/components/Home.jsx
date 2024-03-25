@@ -5,6 +5,7 @@ import "../index.css";
 import Input from "../reusable/Input";
 import { inputValues } from "../constants/inputs";
 import { submit } from "../services/data";
+
 const Home = () => {
   const [formValue, setFormValue] = useState({});
   const [data, setData] = useState([]);
@@ -53,12 +54,12 @@ const Home = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      submit(formValue);
       // Submit logic here
-      console.log("Form submitted:", formValue);
-      // Clear form data
+      alert("Record uploaded")
+      submit(formValue);
+      window.location.reload()
       setFormValue({});
-      // Clear errors
+      
       setErrors({});
     }
   };
@@ -88,7 +89,7 @@ const Home = () => {
       {data.length === 0 ? (
         <h4>You do not have any financial report uploaded yet</h4>
       ) : (
-        <div>
+        <div className="finance">
           <h3>List of Financial Records</h3>
           {data.map((dat) => {
             const {
@@ -97,7 +98,6 @@ const Home = () => {
               "Item count": ItemCount,
               "Manager Name": ManagerName,
             } = dat;
-            console.log(NameOfInitiator);
             return (
               <div key={dat.id} id="financeData">
                 <div>

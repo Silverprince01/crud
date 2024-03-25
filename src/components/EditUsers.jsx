@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Input from "../reusable/Input";
 import { inputValues } from "../constants/inputs";
 import { getItems, handleEdit, deleteItem } from "../services/data";
+import "../index.css"
 
 const EditUsers = () => {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ console.log(id)
   return (
     <div className="body">
       <h3>Edit below</h3>
-      <form>
+      <form id="dynamicForm">
         {inputValues?.map((data) => {
           const { id, label, type } = data;
           return (

@@ -5,7 +5,7 @@ const Input = ({ type, value, label, onChange, errors }) => {
     <div className="inputCon">
       <label htmlFor="">{label}</label>
       <input type={type} value={value} onChange={onChange} />
-      {/* {errors?.[label] && <span style={{ color: "red" }}>{errors?.[label]}</span>} */}
+      {errors?.[label] && <span style={{ color: "red" }}>{errors?.[label]}</span>}
     </div>
   );
 };
